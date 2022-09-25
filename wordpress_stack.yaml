@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'zicom@123'
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: tushar
+      MYSQL_PASSWORD: 'password'
+  
+  wordpress:
+    image: wordpress:latest
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: tushar
+      WORDPRESS_DB_PASSWORD: 'password'
+      WORDPRESS_DB_NAME: wordpress
+
